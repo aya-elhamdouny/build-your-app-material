@@ -1,0 +1,87 @@
+<android.support.design.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:id="@+id/coordinator_layout"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <android.support.design.widget.AppBarLayout
+        android:id="@+id/main_appbar"
+        style="@style/FragmentAppBarLayout"
+        android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
+        app:elevation="@dimen/appbar_elevation">
+
+        <android.support.design.widget.CollapsingToolbarLayout
+            android:id="@+id/layout_collapsing"
+            style="@style/CollapsingToolbar"
+            app:layout_scrollFlags="scroll|exitUntilCollapsed"
+            app:expandedTitleMarginStart="@dimen/expandedTitleMarginStart"
+            app:expandedTitleMarginEnd="@dimen/expandedTitleMarginEnd">
+
+            <LinearLayout
+                style="@style/ContainerLinearLayout">
+
+                <FrameLayout
+                    android:id="@+id/photo_container"
+                    style="@style/PhotoContainer">
+
+                    <ImageView
+                        android:id="@+id/photo"
+                        style="@style/FragmentImage" />
+
+                    <View
+                        style="@style/FragmentImageBackground" />
+
+                </FrameLayout>
+
+                <LinearLayout
+                    android:id="@+id/meta_bar"
+                    style="@style/MetaBar">
+
+                    <TextView
+                        android:id="@+id/article_title"
+                        style="@style/FragmentArticleTitle" />
+
+                    <TextView
+                        android:id="@+id/article_byline"
+                        style="@style/FragmentArticleSubtitle" />
+                </LinearLayout>
+
+            </LinearLayout>
+
+            <android.support.v7.widget.Toolbar
+                android:id="@+id/fragment_toolbar"
+                style="@style/FragmentToolbar"
+                app:popupTheme="@style/ThemeOverlay.AppCompat.Light"
+                app:layout_collapseMode="pin"/>
+
+        </android.support.design.widget.CollapsingToolbarLayout>
+
+    </android.support.design.widget.AppBarLayout>
+
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/scrollview"
+        style="@style/ScrollView"
+        app:layout_behavior="@string/appbar_scrolling_view_behavior">
+
+        <com.example.xyzreader.ui.MaxWidthLinearLayout
+            style="@style/ArticleBodyContainer">
+
+            <TextView
+                android:id="@+id/article_body"
+                style="@style/ArticleBody" />
+
+        </com.example.xyzreader.ui.MaxWidthLinearLayout>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:id="@+id/share_fab"
+        android:src="@drawable/ic_share"
+        app:elevation="@dimen/fab_elevation"
+        style="@style/Fab"/>
+
+    <ProgressBar
+        android:id="@+id/progress_bar"
+        style="@style/ProgressBar"/>
+
+</android.support.design.widget.CoordinatorLayout>
